@@ -23,12 +23,12 @@ An attacker can:
 
 ### 1. Run the vulnerable Java server:
 ```bash
-python3 exploit.py
+java -cp .:sqlite-jdbc-3.36.0.3.jar HttpServerExample
 ```
 
 ### 2. Use the exploit script:
 ```bash
-curl -X POST http://localhost:8000/comment -d "comment=﹤script﹥alert('XSS');﹤/script﹥"
+python3 exploit.py
 ```
 
 ### 3. Open the comment page in a browser:
