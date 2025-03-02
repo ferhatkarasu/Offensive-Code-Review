@@ -23,10 +23,10 @@ An attacker can:
 
 ### 1. Run the vulnerable Java server:
 ```bash
-java -cp .:sqlite-jdbc-3.36.0.3.jar HttpServerExample
+python3 exploit.py
 ```
 
-### 2. Insert an XSS payload using cURL:
+### 2. Use the exploit script:
 ```bash
 curl -X POST http://localhost:8000/comment -d "comment=﹤script﹥alert('XSS');﹤/script﹥"
 ```
