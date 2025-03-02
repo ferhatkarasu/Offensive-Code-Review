@@ -23,7 +23,6 @@ An attacker can:
 
 ### 1. Run the vulnerable Java server:
 ```bash
-javac -cp .:sqlite-jdbc-3.36.0.3.jar HttpServerExample.java vuln.java
 java -cp .:sqlite-jdbc-3.36.0.3.jar HttpServerExample
 ```
 
@@ -34,20 +33,11 @@ curl -X POST http://localhost:8000/comment -d "comment=﹤script﹥alert('XSS');
 
 ### 3. Open the comment page in a browser:
 ```bash
-firefox http://localhost:8000/comments
+http://localhost:8000/comments
 ```
 
 ### 4. If the exploit is successful, an alert box with the current domain should appear! 🚀
 
-## Mitigation
-To prevent this vulnerability:
-- **Avoid modifying sanitized data** after processing.
-- **Normalize input before sanitization**, not after.
-- Use **strict escaping mechanisms** when displaying user input (e.g., `HTMLEncode`).
 
-### References
-- https://owasp.org/www-community/attacks/xss/
-- https://cwe.mitre.org/data/definitions/79.html
-- https://sonarsource.com/blog/security-research-zimbra-xss-vulnerability/
 
 
