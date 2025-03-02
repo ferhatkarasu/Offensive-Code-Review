@@ -33,7 +33,7 @@ python3 exploit.py
 
 ### 3. Open the comment page in a browser:
 ```bash
-http://localhost:8000/comments
+http://localhost:9000/comments
 ```
 
 ### 4. If the exploit is successful, an alert box with the current domain should appear! 🚀
