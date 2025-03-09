@@ -22,30 +22,30 @@ An attacker can:
 ## Exploit Usage
 
 1. Run the vulnerable PHP server:
-```bash
+```sh
    cd /home/test
    php -S MACHINE_IP:8000 vuln.php
 ```
    
 2. Add a new user for testing
-  ```bash
+  ```sh
     sqlite3 users.sqlite "INSERT INTO users (name, password) VALUES ('admin', '1234');"
 ```
 
 4. Verify that the user has been added
-```bash
+```sh
    sqlite3 users.sqlite "SELECT * FROM users;"
    ```
    
 ## If the page is working, we can now use the exploit script.
 
 5. Run the exploit script
-```bash
+```sh
    python3 exploit.py
    ```
 
 7. Verify the database again
-```bash
+```sh
   sqlite3 users.sqlite "SELECT * FROM users;"
   ```
 ## If the password has changed from 1234 to hacked1234, the exploit was successful! 🚀
