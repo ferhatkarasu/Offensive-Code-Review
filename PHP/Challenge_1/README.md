@@ -4,7 +4,6 @@ This repository contains a proof-of-concept (PoC) exploit for a vulnerability in
 The vulnerability is due to weak randomness in token generation, allowing attackers to brute-force the password reset token.
 
 ## Vulnerability Details
-https://sonarcloud.io/project/security_hotspots?id=SonarSourceResearch_2022_calendar_1
 - The password reset token is generated using `md5(mt_rand(1, 100) . $user . time() . session_id());`
 - The entropy is low because:
   - `mt_rand(1, 100)` has only 100 possible values.
@@ -49,5 +48,8 @@ An attacker can:
   sqlite3 users.sqlite "SELECT * FROM users;"
   ```
 ## If the password has changed from 1234 to hacked1234, the exploit was successful! 🚀
+
+## References
+https://sonarcloud.io/project/security_hotspots?id=SonarSourceResearch_2022_calendar_1
 
 
